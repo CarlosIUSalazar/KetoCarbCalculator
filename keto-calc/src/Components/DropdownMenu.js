@@ -14,15 +14,6 @@ function DropdownMenu(props){
         setSelectedValue(obj)
     }
 
-    //let result = 0;
-    // function calculateCarbs(foodInGrams){
-    //     console.log("foodInGrams",foodInGrams)
-    //     console.log("selectedValue.netCarbs", selectedValue.netCarbs)
-    //     result = selectedValue.netCarbs * (foodInGrams/100)
-    //     console.log("Result",result)
-    //     updateTotalCarbs(result);
-    // }
-
     function updateTotalCarbs(amount){
         setTotalCarbs(amount)
     }
@@ -47,6 +38,9 @@ function DropdownMenu(props){
     )
 }
 
+export default DropdownMenu;
+
+
 // onClick={() => {
 //     props.addNewItem(inputText.current.value);
 //   }}
@@ -56,4 +50,11 @@ function DropdownMenu(props){
 // <b>Net Grams of This Food:</b>
 // <pre>{JSON.stringify(selectedValue.netCarbs,null)}</pre>
 
-export default DropdownMenu;
+    //let result = 0;
+    // function calculateCarbs(foodInGrams){
+    //     console.log("foodInGrams",foodInGrams)
+    //     console.log("selectedValue.netCarbs", selectedValue.netCarbs)
+    //     result = selectedValue.netCarbs * (foodInGrams/100)
+    //     console.log("Result",result)
+    //     updateTotalCarbs(result);
+    // }
