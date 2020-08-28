@@ -14,12 +14,15 @@ function App() {
   const [grandTotal, setGrandTotal] = useState(0)
 
   function updateGrandTotal(eatenGrams, foodName, netCarbs){
-    setGrandTotal(parseInt(grandTotal) + (parseInt(eatenGrams/100) * foodName.netCarbs))
+    setGrandTotal((parseInt(grandTotal) + (parseInt(eatenGrams/100) * foodName.netCarbs)).toFixed(2))
     
     
     console.log("NetnetCarbs, foodName, eatenGrams", netCarbs, foodName, eatenGrams)
-    tableOfFoods.push({food:foodName.name, grams: eatenGrams, carbs:(parseInt(foodName.netCarbs) * parseInt(eatenGrams/100))})
+    tableOfFoods.push({food:foodName.name, grams: eatenGrams, carbs:((foodName.netCarbs * parseInt(eatenGrams/100))).toFixed(2)})
 
+    console.log("foodName.netCarbs",foodName.netCarbs)
+    console.log("parseInt(eatenGrams/100)",parseInt(eatenGrams/100))
+    console.log("Multiplication",parseInt(eatenGrams/100) * foodName.netCarbs)
   }
 
   const [tableOfFoods, setTableOfFoods] = useState([
@@ -27,16 +30,6 @@ function App() {
       food: "food🍎",
       grams: 50,
       carbs: 3.3
-    },
-    {
-      food: "Food2🍌",
-      grams: 150,
-      carbs: 1.6
-    },
-    {
-      food: "Food3🍇",
-      grams: 330,
-      carbs: 6.5
     }
   ])
 
