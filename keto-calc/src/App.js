@@ -13,11 +13,16 @@ function App() {
 
   const [grandTotal, setGrandTotal] = useState(0)
 
-  function updateGrandTotal(num){
-    setGrandTotal(parseInt(grandTotal) + parseInt(num))
+  function updateGrandTotal(eatenGrams, foodName, netCarbs){
+    setGrandTotal(parseInt(grandTotal) + (parseInt(eatenGrams/100) * foodName.netCarbs))
+    
+    
+    console.log("NetnetCarbs, foodName, eatenGrams", netCarbs, foodName, eatenGrams)
+    tableOfFoods.push({food:foodName.name, grams: eatenGrams, carbs:(parseInt(foodName.netCarbs) * parseInt(eatenGrams/100))})
+
   }
 
-  const tableOfFoods = [
+  const [tableOfFoods, setTableOfFoods] = useState([
     {
       food: "food🍎",
       grams: 50,
@@ -27,14 +32,24 @@ function App() {
       food: "Food2🍌",
       grams: 150,
       carbs: 1.6
+    },
+    {
+      food: "Food3🍇",
+      grams: 330,
+      carbs: 6.5
     }
-  ]
+  ])
+
+  function updateTableOfFoods(newFood){
+    setTableOfFoods(tableOfFoods.push(newFood))
+
+  }
 
   return (
     <center>
     <div className="App">
       <Header />
-      <DropdownMenu updateGrandTotal={updateGrandTotal} grandTotal={grandTotal}/>
+      <DropdownMenu updateGrandTotal={updateGrandTotal} grandTotal={grandTotal}/> 
       <Results grandTotal={grandTotal}/>
       <Table tableOfFoods={tableOfFoods}/>
     </div>
@@ -43,3 +58,23 @@ function App() {
 }
 
 export default App;
+
+//updateTableOfFoods={updateTableOfFoods} newFood={newFood}
+
+// const tableOfFoods = [
+//   {
+//     food: "food🍎",
+//     grams: 50,
+//     carbs: 3.3
+//   },
+//   {
+//     food: "Food2🍌",
+//     grams: 150,
+//     carbs: 1.6
+//   },
+//   {
+//     food: "Food3🍇",
+//     grams: 330,
+//     carbs: 6.5
+//   }
+// ]
